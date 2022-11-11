@@ -1,0 +1,44 @@
+body{
+  background-color: black;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  margin:0; 
+  padding:0;
+  box-sizing: border-box;
+  display:grid;
+  place-items:center;
+}
+
+.slider {
+  height: 120px;
+  width: 250px;
+  background:#333;
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+}
+
+.colorPicker {
+  text-align: center;
+  color: white;
+}
+
+.slider > input[type="range"] {
+  width: 80%;
+  height: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.slider > #red {
+  background: linear-gradient(to right, black, red);
+}
+.slider > #green {
+  background: linear-gradient(to right, black, green);
+}
+.slider > #blue {
+  background: linear-gradient(to right, black, blue);
+}
