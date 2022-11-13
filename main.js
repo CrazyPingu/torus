@@ -62,7 +62,7 @@ function addParticles() {
   scene.add(particles);
 }
   
-Array(200).fill().forEach(addParticles);
+Array(300).fill().forEach(addParticles);
 
 
 // Animates the torus
