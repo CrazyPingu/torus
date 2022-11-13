@@ -13,6 +13,7 @@ const renderer = new THREE.WebGLRenderer({
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 camera.position.setZ(30);
+camera.position.setY(30);
 
 renderer.render(scene, camera);
 
@@ -20,18 +21,19 @@ renderer.render(scene, camera);
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: document.getElementById('color')});
 const torus = new THREE.Mesh(geometry, material);
+torus.position.setY(-5);
 
 scene.add(torus);
 
 // Lights
-const pointLight = new THREE.PointLight(0xffffff);
+const pointLight = new THREE.PointLight(0xffffff, 70);
 pointLight.position.set(12, 12, 6);
 
-const ambientLight = new THREE.AmbientLight(0xffffff);
+const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(pointLight, ambientLight);
 
 // Debug
-const lightHelper = new THREE.PointLightHelper(pointLight);
+const lightHelper = new THREE.PointLightHelper(pointLight,);
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
 
