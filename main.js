@@ -79,6 +79,12 @@ function animate() {
 }
 
 function changeColor() {
+  if(document.getElementById('red').value + document.getElementById('green').value + document.getElementById('blue').value == 0){
+    alert("Please enter a color that is not black");
+    document.getElementById('red').value = Math.floor(Math.random() * 255) + 1;
+    document.getElementById('green').value = Math.floor(Math.random() * 255) + 1;
+    document.getElementById('blue').value = Math.floor(Math.random() * 255) + 1;
+  }
   material.color.set(
     new THREE.Color(
             "rgb("+document.getElementById('red').value +","+ 
