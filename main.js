@@ -25,14 +25,25 @@ torus.position.setY(-5);
 scene.add(torus);
 
 // Lights
+const lightPos = new THREE.Vector3(20, 22, 9);
 const pointLight = new THREE.PointLight(0xffffff, 70);
-pointLight.position.set(12, 12, 6);
+pointLight.position.set(lightPos.x, lightPos.y, lightPos.z);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(pointLight, ambientLight);
 
+// Sun
+const sun = new THREE.Mesh(
+  new THREE.SphereGeometry(2, 32, 32),
+  new THREE.MeshBasicMaterial({
+    map: new THREE.TextureLoader().load('./public/sun.jpg'),
+  })
+);
+sun.position.set(lightPos.x, lightPos.y, lightPos.z);
+scene.add(sun);
+
 // Debug
-/*const lightHelper = new THREE.PointLightHelper(pointLight,);
+/*const lightHelper = new THREE.PointLightHelper(pointLight, 1, 0x0000ff);
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);*/
 
