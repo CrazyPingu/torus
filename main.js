@@ -81,9 +81,9 @@ function animate() {
 function changeColor() {
   if(document.getElementById('red').value == 255 && document.getElementById('green').value == 255 && document.getElementById('blue').value == 255){
     alert("Please enter a color that is not white");
-    document.getElementById('red').value = Math.floor(Math.random() * 255) + 1;
-    document.getElementById('green').value = Math.floor(Math.random() * 255) + 1;
-    document.getElementById('blue').value = Math.floor(Math.random() * 255) + 1;
+    document.getElementById('red').value = Math.floor(Math.random() * 254);
+    document.getElementById('green').value = Math.floor(Math.random() * 254);
+    document.getElementById('blue').value = Math.floor(Math.random() * 254);
   }
   material.color.set(
     new THREE.Color(
