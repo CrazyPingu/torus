@@ -35,8 +35,9 @@ scene.add(pointLight, ambientLight);
 // Sun
 const sun = new THREE.Mesh(
   new THREE.SphereGeometry(2, 32, 32),
-  new THREE.MeshBasicMaterial({
+  new THREE.MeshStandardMaterial({
     map: new THREE.TextureLoader().load('./public/sun.jpg'),
+    normalMap: new THREE.TextureLoader().load('./public/normal.jpg')
   })
 );
 sun.position.set(lightPos.x, lightPos.y, lightPos.z);
