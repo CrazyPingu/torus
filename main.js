@@ -32,9 +32,9 @@ const ambientLight = new THREE.AmbientLight(0xffffff, 1);
 scene.add(pointLight, ambientLight);
 
 // Debug
-const lightHelper = new THREE.PointLightHelper(pointLight,);
+/*const lightHelper = new THREE.PointLightHelper(pointLight,);
 const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper);
+scene.add(lightHelper, gridHelper);*/
 
 // Orbit Controls
 const controls = new OrbitControls(camera, renderer.domElement);
