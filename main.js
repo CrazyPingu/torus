@@ -25,8 +25,8 @@ torus.position.setY(-5);
 scene.add(torus);
 
 // Lights
-const lightPos = new THREE.Vector3(20, 22, 9);
-const pointLight = new THREE.PointLight(0xffffff, 70);
+const lightPos = new THREE.Vector3(25, 22, 9);
+const pointLight = new THREE.PointLight(0xffffff, 60);
 pointLight.position.set(lightPos.x, lightPos.y, lightPos.z);
 
 const ambientLight = new THREE.AmbientLight(0xffffff, 1);
@@ -79,8 +79,8 @@ function animate() {
 }
 
 function changeColor() {
-  if(document.getElementById('red').value + document.getElementById('green').value + document.getElementById('blue').value == 0){
-    alert("Please enter a color that is not black");
+  if(document.getElementById('red').value == 255 && document.getElementById('green').value == 255 && document.getElementById('blue').value == 255){
+    alert("Please enter a color that is not white");
     document.getElementById('red').value = Math.floor(Math.random() * 255) + 1;
     document.getElementById('green').value = Math.floor(Math.random() * 255) + 1;
     document.getElementById('blue').value = Math.floor(Math.random() * 255) + 1;
