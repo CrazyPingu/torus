@@ -1,5 +1,5 @@
-import * as THREE from './node_modules/three/src/Three.js';
-
+import * as THREE from './modules/three.module.js';
+import {OrbitControls} from './modules/OrbitControls.js';
 // Setup
 
 const scene = new THREE.Scene();
@@ -19,24 +19,35 @@ renderer.render(scene, camera);
 // Torus
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshBasicMaterial({ color: document.getElementById('color'), wireframe: true });
+
+const material = new THREE.MeshStandardMaterial({ color: document.getElementById('color')});
 const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
 
+// Lights
+const pointLight = new THREE.PointLight(0xffffff);
+pointLight.position.set(12, 12, 6);
+
+const ambientLight = new THREE.AmbientLight(0xffffff);
+scene.add(pointLight, ambientLight);
+
+// Debug
+const lightHelper = new THREE.PointLightHelper(pointLight);
+const gridHelper = new THREE.GridHelper(200, 50);
+scene.add(lightHelper, gridHelper);
+
+// Animates the torus
+
 function animate() {
   requestAnimationFrame(animate);
 
-  torus.rotation.x += 0.01;
-  torus.rotation.y += 0.005;
-  torus.rotation.z += 0.01;
+  torus.rotation.x += 0.015;
+  torus.rotation.y += 0.015;
+  torus.rotation.z += 0.015;
 
   changeColor();
   renderer.render(scene, camera);
-}
-
-function dec2Hex(dec) {
-  return Math.abs(dec).toString(16);
 }
 
 function changeColor() {
