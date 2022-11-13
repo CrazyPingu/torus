@@ -4,8 +4,6 @@ body{
   top: 0;
   left: 0;
 
-  margin:0; 
-  padding:0;
   box-sizing: border-box;
   display:grid;
   place-items:center;
@@ -23,6 +21,9 @@ body{
 .colorPicker {
   text-align: center;
   color: white;
+
+  position: absolute;
+  height: 100%;
 }
 
 .slider > input[type="range"] {

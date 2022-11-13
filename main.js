@@ -1,7 +1,7 @@
 import * as THREE from './modules/three.module.js';
 import {OrbitControls} from './modules/OrbitControls.js';
-// Setup
 
+// Setup
 const scene = new THREE.Scene();
 
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -17,7 +17,6 @@ camera.position.setZ(30);
 renderer.render(scene, camera);
 
 // Torus
-
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 
 const material = new THREE.MeshStandardMaterial({ color: document.getElementById('color')});
@@ -37,8 +36,25 @@ const lightHelper = new THREE.PointLightHelper(pointLight);
 const gridHelper = new THREE.GridHelper(200, 50);
 scene.add(lightHelper, gridHelper);
 
-// Animates the torus
+// Orbit Controls
+const controls = new OrbitControls(camera, renderer.domElement);
 
+// Add particles
+function addParticles() {
+  const geometry = new THREE.SphereGeometry(0.1, 10, 10);
+  const material = new THREE.MeshStandardMaterial({ color: 0xffffff, });
+  const particles = new THREE.Mesh(geometry, material);
+
+  const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
+
+  particles.position.set(x, y, z);
+  scene.add(particles);
+}
+  
+Array(200).fill().forEach(addParticles);
+
+
+// Animates the torus
 function animate() {
   requestAnimationFrame(animate);
 
@@ -46,6 +62,7 @@ function animate() {
   torus.rotation.y += 0.015;
   torus.rotation.z += 0.015;
 
+  controls.update();
   changeColor();
   renderer.render(scene, camera);
 }
