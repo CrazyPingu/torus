@@ -16,6 +16,16 @@ camera.position.set(0,30,30);
 
 renderer.render(scene, camera);
 
+// Fix canvas resize
+const bg = document.getElementById('bg');
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  bg.width = window.innerWidth;
+  bg.height = window.innerHeight;
+});
+
 // Torus
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
 const material = new THREE.MeshStandardMaterial({ color: document.getElementById('color')});
@@ -62,7 +72,7 @@ function addParticles() {
   particles.position.set(x, y, z);
   scene.add(particles);
 }
-  
+
 Array(300).fill().forEach(addParticles);
 
 
@@ -88,8 +98,8 @@ function changeColor() {
   }
   material.color.set(
     new THREE.Color(
-            "rgb("+document.getElementById('red').value +","+ 
-                  document.getElementById('green').value +","+ 
+            "rgb("+document.getElementById('red').value +","+
+                  document.getElementById('green').value +","+
                   document.getElementById('blue').value+")"
     )
   );

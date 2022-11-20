@@ -2,12 +2,13 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="stylesheet" href="./style.css" type="text/css" /> 
+    <link rel="stylesheet" href="./style.css" type="text/css" />
     <link rel="shortcut icon" href="./public/icon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Space donuts</title>
   </head>
   <body>
+    <canvas id="bg"></canvas>
     <div class="colorPicker">
       <h2>Pick a color :</h2>
       <div class="slider">
@@ -16,9 +17,8 @@
         <input type="range" id="blue" value="127" min ="0" max="255" />
       </div>
     </div>
-    <canvas id="bg"></canvas>
     <script type="module" src="./main.js"></script>
-    
+
 
   </body>
 </html>
